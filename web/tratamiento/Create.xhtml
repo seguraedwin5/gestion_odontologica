@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTratamientoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTratamientoLabel_IDtratamiento}" for="IDtratamiento" />
+                    <h:inputText id="IDtratamiento" value="#{tratamientoController.selected.IDtratamiento}" title="#{bundle.CreateTratamientoTitle_IDtratamiento}" required="true" requiredMessage="#{bundle.CreateTratamientoRequiredMessage_IDtratamiento}"/>
+                    <h:outputLabel value="#{bundle.CreateTratamientoLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{tratamientoController.selected.fecha}" title="#{bundle.CreateTratamientoTitle_fecha}" required="true" requiredMessage="#{bundle.CreateTratamientoRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateTratamientoLabel_diagnostico}" for="diagnostico" />
+                    <h:inputTextarea rows="4" cols="30" id="diagnostico" value="#{tratamientoController.selected.diagnostico}" title="#{bundle.CreateTratamientoTitle_diagnostico}" required="true" requiredMessage="#{bundle.CreateTratamientoRequiredMessage_diagnostico}"/>
+                    <h:outputLabel value="#{bundle.CreateTratamientoLabel_duracion}" for="duracion" />
+                    <h:inputText id="duracion" value="#{tratamientoController.selected.duracion}" title="#{bundle.CreateTratamientoTitle_duracion}" required="true" requiredMessage="#{bundle.CreateTratamientoRequiredMessage_duracion}"/>
+                    <h:outputLabel value="#{bundle.CreateTratamientoLabel_pasos}" for="pasos" />
+                    <h:inputText id="pasos" value="#{tratamientoController.selected.pasos}" title="#{bundle.CreateTratamientoTitle_pasos}" required="true" requiredMessage="#{bundle.CreateTratamientoRequiredMessage_pasos}"/>
+                    <h:outputLabel value="#{bundle.CreateTratamientoLabel_especificacion}" for="especificacion" />
+                    <h:inputTextarea rows="4" cols="30" id="especificacion" value="#{tratamientoController.selected.especificacion}" title="#{bundle.CreateTratamientoTitle_especificacion}" required="true" requiredMessage="#{bundle.CreateTratamientoRequiredMessage_especificacion}"/>
+                    <h:outputLabel value="#{bundle.CreateTratamientoLabel_IDCita}" for="IDCita" />
+                    <h:selectOneMenu id="IDCita" value="#{tratamientoController.selected.IDCita}" title="#{bundle.CreateTratamientoTitle_IDCita}" required="true" requiredMessage="#{bundle.CreateTratamientoRequiredMessage_IDCita}">
+                        <f:selectItems value="#{citaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tratamientoController.create}" value="#{bundle.CreateTratamientoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tratamientoController.prepareList}" value="#{bundle.CreateTratamientoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTratamientoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

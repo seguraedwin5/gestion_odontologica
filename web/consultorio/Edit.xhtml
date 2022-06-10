@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditConsultorioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditConsultorioLabel_IDconsultorio}" for="IDconsultorio" />
+                    <h:inputText id="IDconsultorio" value="#{consultorioController.selected.IDconsultorio}" title="#{bundle.EditConsultorioTitle_IDconsultorio}" required="true" requiredMessage="#{bundle.EditConsultorioRequiredMessage_IDconsultorio}"/>
+                    <h:outputLabel value="#{bundle.EditConsultorioLabel_piso}" for="piso" />
+                    <h:inputText id="piso" value="#{consultorioController.selected.piso}" title="#{bundle.EditConsultorioTitle_piso}" required="true" requiredMessage="#{bundle.EditConsultorioRequiredMessage_piso}"/>
+                    <h:outputLabel value="#{bundle.EditConsultorioLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{consultorioController.selected.descripcion}" title="#{bundle.EditConsultorioTitle_descripcion}" required="true" requiredMessage="#{bundle.EditConsultorioRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.EditConsultorioLabel_sede}" for="sede" />
+                    <h:inputText id="sede" value="#{consultorioController.selected.sede}" title="#{bundle.EditConsultorioTitle_sede}" required="true" requiredMessage="#{bundle.EditConsultorioRequiredMessage_sede}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{consultorioController.update}" value="#{bundle.EditConsultorioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditConsultorioViewLink}"/>
+                <br />
+                <h:commandLink action="#{consultorioController.prepareList}" value="#{bundle.EditConsultorioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditConsultorioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

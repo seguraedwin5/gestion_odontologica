@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPacienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPacienteEmpty}" rendered="#{pacienteController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{pacienteController.items.rowCount > 0}">
+                    <h:outputText value="#{pacienteController.pagination.pageFirstItem + 1}..#{pacienteController.pagination.pageLastItem + 1}/#{pacienteController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{pacienteController.previous}" value="#{bundle.Previous} #{pacienteController.pagination.pageSize}" rendered="#{pacienteController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{pacienteController.next}" value="#{bundle.Next} #{pacienteController.pagination.pageSize}" rendered="#{pacienteController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{pacienteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_IDpaciente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.IDpaciente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_tipoDoc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoDoc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_numeroDoc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroDoc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_nombres}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombres}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_apellidoz}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidoz}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_fechaNacimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaNacimiento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_rh}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rh}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_direccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_correo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.correo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacienteTitle_genero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.genero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{pacienteController.prepareView}" value="#{bundle.ListPacienteViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pacienteController.prepareEdit}" value="#{bundle.ListPacienteEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pacienteController.destroy}" value="#{bundle.ListPacienteDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{pacienteController.prepareCreate}" value="#{bundle.ListPacienteCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPacienteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

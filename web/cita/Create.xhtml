@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCitaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+
+                <h:panelGrid columns="2" cellspacing="5px" columnClasses="td">
+                    <h:outputLabel value="0" for="citNumero" rendered="false" />
+                    <h:inputText id="citNumero" value="#{citaController.selected.IDcita}" title="#{bundle.CreateCitasTitle_citNumero}" required="true" requiredMessage="#{bundle.CreateCitasRequiredMessage_citNumero}" rendered="false"/>
+
+                    <h:outputLabel value="#{bundle.CreateCitaLabel_fecha}" for="citFecha" />
+                    <b:dateTimePicker id="citFecha" 
+                                      value="#{citaController.selected.fecha}"  
+                                      required="true" format="DD/MM/YYYY" 
+                                      show-time="false" 
+                                      requiredMessage="#{bundle.CreateCitaRequiredMessage_fecha}" 
+                                      class="texto_negro datepicker"
+
+                                      >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </b:dateTimePicker>
+
+                    <h:outputLabel value="#{bundle.CreateCitaLabel_hora}" for="citHora" />
+                    <b:inputText id="citHora" value="#{citaController.selected.hora}" title="#{bundle.CreateCitaTitle_hora}" required="true" requiredMessage="#{bundle.CreateCitaRequiredMessage_hora}"/>
+
+                    <h:outputLabel value="#{bundle.CreateCitaLabel_IDPaciente}" for="citPaciente" />
+                    <b:selectOneMenu id="citPaciente" value="#{citaController.selected.IDPaciente}" title="#{bundle.CreateCitaTitle_IDPaciente}" required="true" requiredMessage="#{bundle.CreateCitaRequiredMessage_IDPaciente}">
+                        <f:selectItems value="#{pacienteController.itemsAvailableSelectOne}"/>
+                    </b:selectOneMenu>
+
+                    <h:outputLabel value="#{bundle.CreateCitaLabel_IDMedico}" for="citMedico" />
+                    <b:selectOneMenu id="citMedico" value="#{citaController.selected.IDMedico}" title="#{bundle.CreateCitaTitle_IDMedico}" required="true" requiredMessage="#{bundle.CreateCitaRequiredMessage_IDMedico}">
+                        <f:selectItems value="#{medicoController.itemsAvailableSelectOne}"/>
+                    </b:selectOneMenu>
+
+                    <h:outputLabel value="#{bundle.CreateCitaLabel_IDConsultorio}" for="citConsultorio" />
+                    <b:selectOneMenu id="citConsultorio" value="#{citaController.selected.IDConsultorio}" title="#{bundle.CreateCitasTitle_IDConsultorio}" required="true" requiredMessage="#{bundle.CreateCitaRequiredMessage_IDConsultorio}">
+                        <f:selectItems value="#{consultorioController.itemsAvailableSelectOne}"/>
+                    </b:selectOneMenu>
+
+
+
+
+
+
+                </h:panelGrid>
+
+                <div class="btn-group">
+                    <br />
+                    <h:commandLink action="#{citaController.create}" value="#{bundle.CreateCitaSaveLink}" />
+
+
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

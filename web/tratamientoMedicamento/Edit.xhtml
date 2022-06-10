@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTratamientoMedicamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTratamientoMedicamentoLabel_IDtratamientomedicamento}" for="IDtratamientomedicamento" />
+                    <h:inputText id="IDtratamientomedicamento" value="#{tratamientoMedicamentoController.selected.IDtratamientomedicamento}" title="#{bundle.EditTratamientoMedicamentoTitle_IDtratamientomedicamento}" required="true" requiredMessage="#{bundle.EditTratamientoMedicamentoRequiredMessage_IDtratamientomedicamento}"/>
+                    <h:outputLabel value="#{bundle.EditTratamientoMedicamentoLabel_dosis}" for="dosis" />
+                    <h:inputText id="dosis" value="#{tratamientoMedicamentoController.selected.dosis}" title="#{bundle.EditTratamientoMedicamentoTitle_dosis}" required="true" requiredMessage="#{bundle.EditTratamientoMedicamentoRequiredMessage_dosis}"/>
+                    <h:outputLabel value="#{bundle.EditTratamientoMedicamentoLabel_nodias}" for="nodias" />
+                    <h:inputText id="nodias" value="#{tratamientoMedicamentoController.selected.nodias}" title="#{bundle.EditTratamientoMedicamentoTitle_nodias}" required="true" requiredMessage="#{bundle.EditTratamientoMedicamentoRequiredMessage_nodias}"/>
+                    <h:outputLabel value="#{bundle.EditTratamientoMedicamentoLabel_IDmedicamento}" for="IDmedicamento" />
+                    <h:selectOneMenu id="IDmedicamento" value="#{tratamientoMedicamentoController.selected.IDmedicamento}" title="#{bundle.EditTratamientoMedicamentoTitle_IDmedicamento}" required="true" requiredMessage="#{bundle.EditTratamientoMedicamentoRequiredMessage_IDmedicamento}">
+                        <f:selectItems value="#{medicamentosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTratamientoMedicamentoLabel_IDtratamiento}" for="IDtratamiento" />
+                    <h:selectOneMenu id="IDtratamiento" value="#{tratamientoMedicamentoController.selected.IDtratamiento}" title="#{bundle.EditTratamientoMedicamentoTitle_IDtratamiento}" required="true" requiredMessage="#{bundle.EditTratamientoMedicamentoRequiredMessage_IDtratamiento}">
+                        <f:selectItems value="#{tratamientoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{tratamientoMedicamentoController.update}" value="#{bundle.EditTratamientoMedicamentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTratamientoMedicamentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{tratamientoMedicamentoController.prepareList}" value="#{bundle.EditTratamientoMedicamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTratamientoMedicamentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

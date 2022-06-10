@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCitaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCitaLabel_IDcita}" for="IDcita" />
+                    <h:inputText id="IDcita" value="#{citaController.selected.IDcita}" title="#{bundle.EditCitaTitle_IDcita}" required="true" requiredMessage="#{bundle.EditCitaRequiredMessage_IDcita}"/>
+                    <h:outputLabel value="#{bundle.EditCitaLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{citaController.selected.fecha}" title="#{bundle.EditCitaTitle_fecha}" required="true" requiredMessage="#{bundle.EditCitaRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCitaLabel_hora}" for="hora" />
+                    <h:inputText id="hora" value="#{citaController.selected.hora}" title="#{bundle.EditCitaTitle_hora}" required="true" requiredMessage="#{bundle.EditCitaRequiredMessage_hora}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCitaLabel_IDConsultorio}" for="IDConsultorio" />
+                    <h:selectOneMenu id="IDConsultorio" value="#{citaController.selected.IDConsultorio}" title="#{bundle.EditCitaTitle_IDConsultorio}" required="true" requiredMessage="#{bundle.EditCitaRequiredMessage_IDConsultorio}">
+                        <f:selectItems value="#{consultorioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditCitaLabel_IDMedico}" for="IDMedico" />
+                    <h:selectOneMenu id="IDMedico" value="#{citaController.selected.IDMedico}" title="#{bundle.EditCitaTitle_IDMedico}" required="true" requiredMessage="#{bundle.EditCitaRequiredMessage_IDMedico}">
+                        <f:selectItems value="#{medicoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditCitaLabel_IDPaciente}" for="IDPaciente" />
+                    <h:selectOneMenu id="IDPaciente" value="#{citaController.selected.IDPaciente}" title="#{bundle.EditCitaTitle_IDPaciente}" required="true" requiredMessage="#{bundle.EditCitaRequiredMessage_IDPaciente}">
+                        <f:selectItems value="#{pacienteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{citaController.update}" value="#{bundle.EditCitaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCitaViewLink}"/>
+                <br />
+                <h:commandLink action="#{citaController.prepareList}" value="#{bundle.EditCitaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCitaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

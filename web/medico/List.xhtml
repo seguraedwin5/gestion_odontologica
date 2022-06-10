@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMedicoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMedicoEmpty}" rendered="#{medicoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{medicoController.items.rowCount > 0}">
+                    <h:outputText value="#{medicoController.pagination.pageFirstItem + 1}..#{medicoController.pagination.pageLastItem + 1}/#{medicoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{medicoController.previous}" value="#{bundle.Previous} #{medicoController.pagination.pageSize}" rendered="#{medicoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{medicoController.next}" value="#{bundle.Next} #{medicoController.pagination.pageSize}" rendered="#{medicoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{medicoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_idMedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMedico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_tipoDoc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoDoc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_numDoc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numDoc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_nombresMedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombresMedico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_apellidosMedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidosMedico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_especialidadMedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.especialidadMedico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_numerolicenciaMedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerolicenciaMedico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_correo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.correo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMedicoTitle_direccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{medicoController.prepareView}" value="#{bundle.ListMedicoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{medicoController.prepareEdit}" value="#{bundle.ListMedicoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{medicoController.destroy}" value="#{bundle.ListMedicoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{medicoController.prepareCreate}" value="#{bundle.ListMedicoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMedicoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
