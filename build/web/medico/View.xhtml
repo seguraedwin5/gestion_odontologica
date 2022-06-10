@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMedicoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMedicoLabel_idMedico}"/>
+                    <h:outputText value="#{medicoController.selected.idMedico}" title="#{bundle.ViewMedicoTitle_idMedico}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_tipoDoc}"/>
+                    <h:outputText value="#{medicoController.selected.tipoDoc}" title="#{bundle.ViewMedicoTitle_tipoDoc}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_numDoc}"/>
+                    <h:outputText value="#{medicoController.selected.numDoc}" title="#{bundle.ViewMedicoTitle_numDoc}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_nombresMedico}"/>
+                    <h:outputText value="#{medicoController.selected.nombresMedico}" title="#{bundle.ViewMedicoTitle_nombresMedico}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_apellidosMedico}"/>
+                    <h:outputText value="#{medicoController.selected.apellidosMedico}" title="#{bundle.ViewMedicoTitle_apellidosMedico}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_especialidadMedico}"/>
+                    <h:outputText value="#{medicoController.selected.especialidadMedico}" title="#{bundle.ViewMedicoTitle_especialidadMedico}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_numerolicenciaMedico}"/>
+                    <h:outputText value="#{medicoController.selected.numerolicenciaMedico}" title="#{bundle.ViewMedicoTitle_numerolicenciaMedico}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_telefono}"/>
+                    <h:outputText value="#{medicoController.selected.telefono}" title="#{bundle.ViewMedicoTitle_telefono}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_correo}"/>
+                    <h:outputText value="#{medicoController.selected.correo}" title="#{bundle.ViewMedicoTitle_correo}"/>
+                    <h:outputText value="#{bundle.ViewMedicoLabel_direccion}"/>
+                    <h:outputText value="#{medicoController.selected.direccion}" title="#{bundle.ViewMedicoTitle_direccion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{medicoController.destroyAndView}" value="#{bundle.ViewMedicoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMedicoEditLink}"/>
+                <br />
+                <h:commandLink action="#{medicoController.prepareCreate}" value="#{bundle.ViewMedicoCreateLink}" />
+                <br />
+                <h:commandLink action="#{medicoController.prepareList}" value="#{bundle.ViewMedicoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMedicoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

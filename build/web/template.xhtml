@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <div id="encabezado">
+            <h1><ui:insert name="header">SISTEMA GESTION DE CITAS ODONTOLOGICAS PLENIMEDIC CAQUEZA</ui:insert></h1>
+        </div>
+
+        <nav id="menu">
+            <h:form>
+                <ul>
+                    <li class="btn"><h:commandLink action="inicio">inicio</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="asignar_cita">asignar cita</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="consultar_cita">consultar cita</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="asignar_consultorio">asignar consultorio</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="consultar_consultorio">consultar consultorio</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="asignar_medicamentos">asignar medicamentos</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="consultar_medicamentos">consultar medicamentos</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="asignar_medico">asignar medico</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="consultar_medico">consultar medico</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="asignar_paciente">asignar paciente</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="consultar_paciente">Consultar paciente</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="asignar_tratamiento">asignar tratamiento</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="consultar_tratamiento">consultar tratamiento</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="asignar_tratamientoMedicamento">asignar tratamientoMedicamento</h:commandLink></li>
+                    <li class="btn"><h:commandLink action="consultar_tratamientoMedicamento">consultar tratamientoMedicamento</h:commandLink></li>
+
+                </ul> 
+            </h:form>
+        </nav>
+
+        <div id="contenido">
+            <ui:insert name="body">Default Body</ui:insert>
+        </div>
+    </h:body>
+</html>

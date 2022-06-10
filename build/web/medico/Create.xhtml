@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMedicoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_idMedico}" for="idMedico" />
+                    <h:inputText id="idMedico" value="#{medicoController.selected.idMedico}" title="#{bundle.CreateMedicoTitle_idMedico}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_idMedico}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_tipoDoc}" for="tipoDoc" />
+                    <h:inputText id="tipoDoc" value="#{medicoController.selected.tipoDoc}" title="#{bundle.CreateMedicoTitle_tipoDoc}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_tipoDoc}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_numDoc}" for="numDoc" />
+                    <h:inputText id="numDoc" value="#{medicoController.selected.numDoc}" title="#{bundle.CreateMedicoTitle_numDoc}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_numDoc}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_nombresMedico}" for="nombresMedico" />
+                    <h:inputText id="nombresMedico" value="#{medicoController.selected.nombresMedico}" title="#{bundle.CreateMedicoTitle_nombresMedico}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_nombresMedico}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_apellidosMedico}" for="apellidosMedico" />
+                    <h:inputText id="apellidosMedico" value="#{medicoController.selected.apellidosMedico}" title="#{bundle.CreateMedicoTitle_apellidosMedico}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_apellidosMedico}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_especialidadMedico}" for="especialidadMedico" />
+                    <h:inputText id="especialidadMedico" value="#{medicoController.selected.especialidadMedico}" title="#{bundle.CreateMedicoTitle_especialidadMedico}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_especialidadMedico}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_numerolicenciaMedico}" for="numerolicenciaMedico" />
+                    <h:inputText id="numerolicenciaMedico" value="#{medicoController.selected.numerolicenciaMedico}" title="#{bundle.CreateMedicoTitle_numerolicenciaMedico}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_numerolicenciaMedico}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{medicoController.selected.telefono}" title="#{bundle.CreateMedicoTitle_telefono}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_correo}" for="correo" />
+                    <h:inputText id="correo" value="#{medicoController.selected.correo}" title="#{bundle.CreateMedicoTitle_correo}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_correo}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{medicoController.selected.direccion}" title="#{bundle.CreateMedicoTitle_direccion}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_direccion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{medicoController.create}" value="#{bundle.CreateMedicoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{medicoController.prepareList}" value="#{bundle.CreateMedicoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMedicoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

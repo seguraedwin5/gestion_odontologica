@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTratamientoMedicamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTratamientoMedicamentoEmpty}" rendered="#{tratamientoMedicamentoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tratamientoMedicamentoController.items.rowCount > 0}">
+                    <h:outputText value="#{tratamientoMedicamentoController.pagination.pageFirstItem + 1}..#{tratamientoMedicamentoController.pagination.pageLastItem + 1}/#{tratamientoMedicamentoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tratamientoMedicamentoController.previous}" value="#{bundle.Previous} #{tratamientoMedicamentoController.pagination.pageSize}" rendered="#{tratamientoMedicamentoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tratamientoMedicamentoController.next}" value="#{bundle.Next} #{tratamientoMedicamentoController.pagination.pageSize}" rendered="#{tratamientoMedicamentoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tratamientoMedicamentoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTratamientoMedicamentoTitle_IDtratamientomedicamento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.IDtratamientomedicamento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTratamientoMedicamentoTitle_dosis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dosis}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTratamientoMedicamentoTitle_nodias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nodias}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTratamientoMedicamentoTitle_IDmedicamento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.IDmedicamento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTratamientoMedicamentoTitle_IDtratamiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.IDtratamiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tratamientoMedicamentoController.prepareView}" value="#{bundle.ListTratamientoMedicamentoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tratamientoMedicamentoController.prepareEdit}" value="#{bundle.ListTratamientoMedicamentoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tratamientoMedicamentoController.destroy}" value="#{bundle.ListTratamientoMedicamentoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tratamientoMedicamentoController.prepareCreate}" value="#{bundle.ListTratamientoMedicamentoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTratamientoMedicamentoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
