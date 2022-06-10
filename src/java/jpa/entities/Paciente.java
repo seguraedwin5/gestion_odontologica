@@ -246,7 +246,7 @@ public class Paciente implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Paciente[ iDpaciente=" + iDpaciente + " ]";
+        return "Paciente: " + iDpaciente + " "+nombres +" "+ apellidoz;
     }
     
 }

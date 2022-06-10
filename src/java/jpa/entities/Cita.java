@@ -160,7 +160,7 @@ public class Cita implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Cita[ iDcita=" + iDcita + " ]";
+        return "Cita: " + iDcita ;
     }
     
 }

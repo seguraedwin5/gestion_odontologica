@@ -228,7 +228,7 @@ public class Medico implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Medico[ idMedico=" + idMedico + " ]";
+        return "Medico: " + idMedico + " "+ nombresMedico+" "+ apellidosMedico;
     }
     
 }

@@ -131,7 +131,7 @@ public class TratamientoMedicamento implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.TratamientoMedicamento[ iDtratamientomedicamento=" + iDtratamientomedicamento + " ]";
+        return "tratamiento medicamento: " + iDtratamientomedicamento + " "+dosis+" "+ nodias;
     }
     
 }

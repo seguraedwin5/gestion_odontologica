@@ -137,7 +137,7 @@ public class Consultorio implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Consultorio[ iDconsultorio=" + iDconsultorio + " ]";
+        return "Consultorio: " + iDconsultorio +" "+ descripcion + " piso: "+ piso ;
     }
     
 }
