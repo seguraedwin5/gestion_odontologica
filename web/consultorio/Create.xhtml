@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -14,15 +15,15 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateConsultorioLabel_IDconsultorio}" for="IDconsultorio" />
+                <h:panelGrid columns="2"  cellspacing="5px" columnClasses="td">
+                    <h:outputLabel value="0" for="IDconsultorio" rendered="false" />
                     <h:inputText id="IDconsultorio" value="#{consultorioController.selected.IDconsultorio}" title="#{bundle.CreateConsultorioTitle_IDconsultorio}" required="true" requiredMessage="#{bundle.CreateConsultorioRequiredMessage_IDconsultorio}"/>
                     <h:outputLabel value="#{bundle.CreateConsultorioLabel_piso}" for="piso" />
-                    <h:inputText id="piso" value="#{consultorioController.selected.piso}" title="#{bundle.CreateConsultorioTitle_piso}" required="true" requiredMessage="#{bundle.CreateConsultorioRequiredMessage_piso}"/>
+                    <b:inputText id="piso" value="#{consultorioController.selected.piso}" title="#{bundle.CreateConsultorioTitle_piso}" required="true" requiredMessage="#{bundle.CreateConsultorioRequiredMessage_piso}"/>
                     <h:outputLabel value="#{bundle.CreateConsultorioLabel_descripcion}" for="descripcion" />
-                    <h:inputText id="descripcion" value="#{consultorioController.selected.descripcion}" title="#{bundle.CreateConsultorioTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateConsultorioRequiredMessage_descripcion}"/>
+                    <b:inputText id="descripcion" value="#{consultorioController.selected.descripcion}" title="#{bundle.CreateConsultorioTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateConsultorioRequiredMessage_descripcion}"/>
                     <h:outputLabel value="#{bundle.CreateConsultorioLabel_sede}" for="sede" />
-                    <h:inputText id="sede" value="#{consultorioController.selected.sede}" title="#{bundle.CreateConsultorioTitle_sede}" required="true" requiredMessage="#{bundle.CreateConsultorioRequiredMessage_sede}"/>
+                    <b:inputText id="sede" value="#{consultorioController.selected.sede}" title="#{bundle.CreateConsultorioTitle_sede}" required="true" requiredMessage="#{bundle.CreateConsultorioRequiredMessage_sede}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{consultorioController.create}" value="#{bundle.CreateConsultorioSaveLink}" />

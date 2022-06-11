@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -14,15 +15,15 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateMedicamentosLabel_IDmedicamentos}" for="IDmedicamentos" />
+                <h:panelGrid columns="2" cellspacing="5px" columnClasses="td">
+                    <h:outputLabel value="0" for="IDmedicamentos" rendered="false" />
                     <h:inputText id="IDmedicamentos" value="#{medicamentosController.selected.IDmedicamentos}" title="#{bundle.CreateMedicamentosTitle_IDmedicamentos}" required="true" requiredMessage="#{bundle.CreateMedicamentosRequiredMessage_IDmedicamentos}"/>
                     <h:outputLabel value="#{bundle.CreateMedicamentosLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{medicamentosController.selected.nombre}" title="#{bundle.CreateMedicamentosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateMedicamentosRequiredMessage_nombre}"/>
+                    <b:inputText id="nombre" value="#{medicamentosController.selected.nombre}" title="#{bundle.CreateMedicamentosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateMedicamentosRequiredMessage_nombre}"/>
                     <h:outputLabel value="#{bundle.CreateMedicamentosLabel_especificaciones}" for="especificaciones" />
-                    <h:inputText id="especificaciones" value="#{medicamentosController.selected.especificaciones}" title="#{bundle.CreateMedicamentosTitle_especificaciones}" required="true" requiredMessage="#{bundle.CreateMedicamentosRequiredMessage_especificaciones}"/>
+                    <b:inputText id="especificaciones" value="#{medicamentosController.selected.especificaciones}" title="#{bundle.CreateMedicamentosTitle_especificaciones}" required="true" requiredMessage="#{bundle.CreateMedicamentosRequiredMessage_especificaciones}"/>
                     <h:outputLabel value="#{bundle.CreateMedicamentosLabel_viaDeAdministracion}" for="viaDeAdministracion" />
-                    <h:inputText id="viaDeAdministracion" value="#{medicamentosController.selected.viaDeAdministracion}" title="#{bundle.CreateMedicamentosTitle_viaDeAdministracion}" required="true" requiredMessage="#{bundle.CreateMedicamentosRequiredMessage_viaDeAdministracion}"/>
+                    <b:inputText id="viaDeAdministracion" value="#{medicamentosController.selected.viaDeAdministracion}" title="#{bundle.CreateMedicamentosTitle_viaDeAdministracion}" required="true" requiredMessage="#{bundle.CreateMedicamentosRequiredMessage_viaDeAdministracion}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{medicamentosController.create}" value="#{bundle.CreateMedicamentosSaveLink}" />

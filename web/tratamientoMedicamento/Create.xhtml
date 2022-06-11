@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -14,21 +15,21 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateTratamientoMedicamentoLabel_IDtratamientomedicamento}" for="IDtratamientomedicamento" />
+                <h:panelGrid columns="2" cellspacing="5px" columnClasses="td">
+                    <h:outputLabel value="0" for="IDtratamiento" rendered="false" />
                     <h:inputText id="IDtratamientomedicamento" value="#{tratamientoMedicamentoController.selected.IDtratamientomedicamento}" title="#{bundle.CreateTratamientoMedicamentoTitle_IDtratamientomedicamento}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_IDtratamientomedicamento}"/>
                     <h:outputLabel value="#{bundle.CreateTratamientoMedicamentoLabel_dosis}" for="dosis" />
-                    <h:inputText id="dosis" value="#{tratamientoMedicamentoController.selected.dosis}" title="#{bundle.CreateTratamientoMedicamentoTitle_dosis}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_dosis}"/>
+                    <b:inputText id="dosis" value="#{tratamientoMedicamentoController.selected.dosis}" title="#{bundle.CreateTratamientoMedicamentoTitle_dosis}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_dosis}"/>
                     <h:outputLabel value="#{bundle.CreateTratamientoMedicamentoLabel_nodias}" for="nodias" />
-                    <h:inputText id="nodias" value="#{tratamientoMedicamentoController.selected.nodias}" title="#{bundle.CreateTratamientoMedicamentoTitle_nodias}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_nodias}"/>
+                    <b:inputText id="nodias" value="#{tratamientoMedicamentoController.selected.nodias}" title="#{bundle.CreateTratamientoMedicamentoTitle_nodias}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_nodias}"/>
                     <h:outputLabel value="#{bundle.CreateTratamientoMedicamentoLabel_IDmedicamento}" for="IDmedicamento" />
-                    <h:selectOneMenu id="IDmedicamento" value="#{tratamientoMedicamentoController.selected.IDmedicamento}" title="#{bundle.CreateTratamientoMedicamentoTitle_IDmedicamento}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_IDmedicamento}">
+                    <b:selectOneMenu id="IDmedicamento" value="#{tratamientoMedicamentoController.selected.IDmedicamento}" title="#{bundle.CreateTratamientoMedicamentoTitle_IDmedicamento}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_IDmedicamento}">
                         <f:selectItems value="#{medicamentosController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </b:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateTratamientoMedicamentoLabel_IDtratamiento}" for="IDtratamiento" />
-                    <h:selectOneMenu id="IDtratamiento" value="#{tratamientoMedicamentoController.selected.IDtratamiento}" title="#{bundle.CreateTratamientoMedicamentoTitle_IDtratamiento}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_IDtratamiento}">
+                    <b:selectOneMenu id="IDtratamiento" value="#{tratamientoMedicamentoController.selected.IDtratamiento}" title="#{bundle.CreateTratamientoMedicamentoTitle_IDtratamiento}" required="true" requiredMessage="#{bundle.CreateTratamientoMedicamentoRequiredMessage_IDtratamiento}">
                         <f:selectItems value="#{tratamientoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </b:selectOneMenu>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{tratamientoMedicamentoController.create}" value="#{bundle.CreateTratamientoMedicamentoSaveLink}" />

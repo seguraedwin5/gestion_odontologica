@@ -113,15 +113,22 @@ div#contenido {
 }
 
 .btn{
-     
-border:  3px solid;
+    background-color: #0075ff;
+    color: black; 
+    border: 2px solid #008CBA;
+    border-radius: 12px;
+    border:  3px solid;
     width: 140px;
     padding: 5px;
     margin: 3px;
     background-color: #90b4bd;
 
-}
+    }
 
+.btn:hover {
+  background-color: #008CBA;
+  color: #66ffff;
+}
 .btn a{
     color: #3a4f54;
 
@@ -150,4 +157,7 @@ border:  3px solid;
 
 .datepicker{
     margin-bottom: 15px;
+}
+#contenido{
+    background: url("http://localhost:8080/gestion/faces/resources/images/Banner.png") no-repeat ;
 }
